@@ -1,7 +1,9 @@
+import { BackgroundManager } from "./BackgroundManager.js";
 export class DoodleGame {
   constructor(canvasManager) {
     this.canvas = canvasManager.canvas;
     this.ctx = canvasManager.ctx;
+    this.background = new BackgroundManager(this.canvas);
 
     this.gravity = 0.4;
     this.bounceVelocity = -12;
@@ -189,9 +191,8 @@ export class DoodleGame {
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Φόντο
-    this.ctx.fillStyle = "#eef2f3";
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.background.update();
+    this.background.draw(this.ctx);
 
     // Σχεδίαση Πλατφορμών
     this.ctx.fillStyle = "#2ecc71";
