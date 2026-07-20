@@ -9,7 +9,7 @@ export class CanvasManager {
   }
 
   resize() {
-    const aspect = 400 / 720;
+    const aspect = 400 / 721;
 
     const h = window.innerHeight;
     const w = h * aspect;
